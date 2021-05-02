@@ -1,12 +1,13 @@
 const router = require('express').Router()
 const { findUser } = require('../models/UserModel')
-const { addMessage } = require('../models/MessageModel')
+const { addMessage, showMessages } = require('../models/MessageModel')
 
-router.get('/', (req, res) => {
-    console.log(Date.now()) 
+router.get('/', async(req, res) => { 
+    let messagesArray = await showMessages()
     res.render('home', {
         page_name: 'home', 
-        user: req.user
+        user: req.user, 
+        messages: messagesArray
     })
 })
 

@@ -10,7 +10,7 @@ module.exports = async function AuthMiddleware (req, res, next) {
         }
     }
     catch (e){
-        console.log("Error in authMiddleware: ",e);
+        return false
     }
     finally {
         next()

@@ -1,5 +1,6 @@
 const { Schema } = require('mongoose')
 const client = require('../modules/mongo')
+const moment = require('moment')
 
 const MessageSchema = new Schema({
     content: {
@@ -18,8 +19,8 @@ const MessageSchema = new Schema({
         required: true
     },
     date: {
-        type: Date,
-        default: Date.now()
+        type: String,
+        default: moment(Date.now()).format('D MMM h:mm a')
     }
 })
 
@@ -34,11 +35,12 @@ async function addMessage(content, authorName, authorEmail){
     return await db.create({ content, authorName, authorEmail})
 }
 
-// async function findMessage(content, author){
-//     let db = await MessageModel()
-//     return await db.find({ content, author})
-// }
+async function showMessages(){
+    let db = await MessageModel()
+    return await db.find()
+}
 
 module.exports = {
-    addMessage
+    addMessage,
+    showMessages
 }
