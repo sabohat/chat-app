@@ -1,12 +1,13 @@
 <%- include('parts/header')%>
 <%- include('parts/navbar')%>
 <%var user%>
+<%var photo%>
     <div class="container mt-5">
         <div class="card bg-light">
             <div class="row" style="height: 200px;">
-                <div class="col-2 mb-0">
+                <div class="col-3 mb-0" >
                     <label for="img-upload">
-                        <img src="https://picsum.photos/200" width="200" height="200" class="card-img-top rounded float-start" alt="...">
+                        <img src="./photos/<%=`${user.id}`%>.jpg" width="200" class=" rounded float-start" alt="...">
                     </label>
                     <input type="file" id="img-upload" class="invisible">
                 </div>
@@ -24,5 +25,5 @@
             
         </div>
     </div>
-
+<script src="./user.js"></script>
 <%- include('parts/footer')%>

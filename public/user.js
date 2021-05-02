@@ -4,12 +4,13 @@ let formData = new FormData()
 console.log('starting..')
 photoInput.addEventListener('change', event => {
     formData.append('photo', event.target.files[0])
+    console.log(event.target.files[0])
     fetchData()
 })
 
 async function fetchData(){
     try {
-        let response = await fetch('/photo', {
+        let response = await fetch('/account/setUserPhoto', {
             method : "POST", 
             body: formData
         })
