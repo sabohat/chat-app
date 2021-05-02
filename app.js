@@ -5,7 +5,6 @@ app = express()
 const fs = require('fs')
 const path = require('path')
 require('dotenv').config()
-const PORT = process.env.PORT
 
 const AuthMiddleware = require('./middlewares/auth')
 const cookieParser = require('cookie-parser')
@@ -28,7 +27,7 @@ fs.readdir(RoutesPath, (err, files) => {
         }
     }
 })
-
+const PORT = process.env.PORT || 3000
 app.listen(PORT, ()=>{console.log('starting on port ', PORT)})
-
+module.exports = app
   
