@@ -1,0 +1,71 @@
+<%- include('parts/header')%>
+    <%- include('parts/navbar')%>
+        <% var user%>
+            <div class="container">
+                <h2>Welcome <%= user ? "to the chat, " + user.name+"!" : "Guest!" %>
+                </h2>
+                <%if(!user) {%>
+                    <p class="mt-4">Do not have a account yet? <a href="/register">Register here</a></p>
+                    <p class="mt-4">Already registered? <a href="/login">Login here</a></p>
+                    <%}%>
+                <%if(user) {%>
+                    <div class="m-auto row container d-flex justify-content-center"></div>
+                    <div class="col-md-6 border border-warning m-auto mt-3 p-3">
+                        <div class="box box-warning direct-chat direct-chat-warning">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Chat Messages</h3>
+                                <div class="box-tools pull-right">
+                                    <span data-toggle="tooltip" title=""
+                                        class="mb-1 badge bg-yellow bg-warning text-dark"
+                                        data-original-title="3 New Messages">Messages: 20</span>
+                                </div>
+                            </div>
+                            <div class="box-body" style="height: 450px;">
+                                <div class="direct-chat-messages overflow-auto p-3 mb-3 mb-md-0 mr-md-3"
+                                    style="max-width: 100%; max-height: 430px;">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <img class="direct-chat-img rounded-circle" width="60" height="60"
+                                            src="https://picsum.photos/50" alt="message user image">
+                                        <div class="direct-chat-msg m-2 border rounded bg-light text-dark p-2">
+                                            <div class="direct-chat-info clearfix text-secondary">
+                                                <span class="direct-chat-name pull-left">Timona Siera</span>
+                                                <span class="direct-chat-timestamp pull-right">| 23 Jan 2:00
+                                                    pm</span>
+                                            </div>
+                                            <div class="direct-chat-text"> For what reason would it be advisable
+                                                for me to think about business content? </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <div class="direct-chat-msg m-2 border rounded bg-dark text-white p-2">
+                                            <div class="direct-chat-info clearfix text-secondary">
+                                                <span class="direct-chat-name pull-left">Timona Siera</span>
+                                                <span class="direct-chat-timestamp pull-right">| 23 Jan 2:00
+                                                    pm</span>
+                                            </div>
+                                            <div class="direct-chat-text"> For what reason would it be advisable
+                                                for me to think about business content? </div>
+                                        </div>
+                                        <img class="direct-chat-img rounded-circle" width="60" height="60"
+                                            src="https://picsum.photos/50" alt="message user image">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-footer">
+                                <form action="/send" method="post">
+                                    <div class="input-group">
+                                        <input type="text" name="message" placeholder="Type Message ..."
+                                            class="form-control" required>
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-warning btn-flat">Send</button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        
+        <%}%>
+<%- include('parts/footer')%>

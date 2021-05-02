@@ -1,0 +1,28 @@
+<%- include('parts/header')%>
+<%- include('parts/navbar')%>
+<%var user%>
+    <div class="container mt-5">
+        <div class="card bg-light">
+            <div class="row" style="height: 200px;">
+                <div class="col-2 mb-0">
+                    <label for="img-upload">
+                        <img src="https://picsum.photos/200" width="200" height="200" class="card-img-top rounded float-start" alt="...">
+                    </label>
+                    <input type="file" id="img-upload" class="invisible">
+                </div>
+                <div class="col-8 ">
+                    <div class="card-body">
+                        <h5 class="card-title"><%=user.name%></h5>
+                        <ul>
+                            <li><%=user?.email%></li>
+                            
+                        </ul>
+                        <a href="/" class="btn btn-primary">Start chatting</a>
+                      </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+<%- include('parts/footer')%>

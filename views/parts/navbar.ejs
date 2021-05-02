@@ -1,0 +1,17 @@
+<%let page%>
+<%var user%>
+<div class="container d-flex justify-content-between mt-2">
+    <div class="header">Global Chat</div>
+    <nav class="nav d-flex">
+        
+        <a class="nav-link <%= page_name === 'home' ? "active" : "link-dark"%>" href="/">Home</a>
+        <%if(!user) {%>
+        <a class="nav-link <%= page_name === 'login' ? "active" : "link-dark"%>" href="/login">Login</a>
+        <a class="nav-link <%= page_name === 'register' ? "active" : "link-dark"%>" href="/register">Register</a>
+        <%}%>
+        <%if(user) {%>
+            <a class="nav-link <%= page_name === 'account' ? "active" : "link-dark"%>" href="/account">Account</a>
+        <a class="nav-link link-dark" aria-current="page" href="/logout">Logout</a>
+        <%}%>
+    </nav>
+</div>

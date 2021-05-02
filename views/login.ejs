@@ -1,0 +1,30 @@
+<%- include('parts/header')%>
+<%- include('parts/navbar')%>
+<% var error %>
+
+<div class="container">
+    <div class="col-5 m-auto mt-5 bg-light p-3">
+        <h3 class="text-center">Login</h3>
+        <% if (error) { %>
+          <div  class="alert alert-danger" role="alert">
+            <%= error %>
+          </div>
+          <% } %>
+        <form action="/login" method="POST">
+            <div class="form-group mt-3">
+              <label for="exampleInputEmail1">Email Address</label>
+              <input type="email" name="email" class="form-control mt-1  " id="exampleInputEmail1" placeholder="Enter email" required>
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group mt-3">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control mt-1" id="exampleInputPassword1" placeholder="Password" required>
+              </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+          </form>
+          <p class="mt-4">Do not have a account yet? <a href="/register">Register here</a></p>
+    </div>
+</div>
+
+
+<%- include('parts/footer')%>
