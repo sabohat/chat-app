@@ -3,6 +3,8 @@ const { generateHash } = require('../modules/crypt')
 const { generateToken } = require('../modules/jwt')
 const Joi = require('joi')
 const { addUser } = require('../models/UserModel')
+const fs = require('fs')
+const path = require('path')
 
 // Joi validation schema
 const schema = Joi.object({
@@ -21,7 +23,7 @@ router.post('/', async (req, res) => {
         const { name, email, password } =  await schema.validateAsync(req.body);
 
         let user = await addUser(name, email, generateHash(password))
-        
+
         let token = generateToken({name: name, email: email})
         res
             .cookie('token', token)

@@ -16,8 +16,9 @@ router.post('/send', async(req, res) => {
 
     let user = req?.user
     if (!user) throw 'Something went wrong, no user found'
+    let userdb = await findUser(req?.user?.email)
 
-    let message = await addMessage(content, user.name, user.email)
+    let message = await addMessage(content, user.name, user.email, userdb['id'])
 
     res.redirect('/')
 })

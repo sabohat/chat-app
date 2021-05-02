@@ -7,7 +7,7 @@
             <div class="row" style="height: 200px;">
                 <div class="col-3 mb-0" >
                     <label for="img-upload">
-                        <img src="./photos/<%=`${user.id}`%>.jpg" width="200" class=" rounded float-start" alt="...">
+                        <img src="./photos/<%=`${user.id}`%>.jpg" onerror="this.src='./photos/user.jpg'" width="200" class=" rounded float-start" alt="...">
                     </label>
                     <input type="file" id="img-upload" class="invisible">
                 </div>

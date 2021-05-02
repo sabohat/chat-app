@@ -18,6 +18,10 @@ const MessageSchema = new Schema({
         type: String,
         required: true
     },
+    authorID: {
+        type: String,
+        required: true
+    },
     date: {
         type: String,
         default: moment(Date.now()).format('D MMM h:mm a')
@@ -30,9 +34,9 @@ async function MessageModel () {
 }
 
 
-async function addMessage(content, authorName, authorEmail){
+async function addMessage(content, authorName, authorEmail, authorID){
     let db = await MessageModel()
-    return await db.create({ content, authorName, authorEmail})
+    return await db.create({ content, authorName, authorEmail, authorID})
 }
 
 async function showMessages(){

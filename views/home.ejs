@@ -34,13 +34,13 @@
                                             <div class="direct-chat-text"><%=message['content']%></div>
                                         </div>
                                         <img class="direct-chat-img rounded-circle" width="60" height="60"
-                                            src="https://picsum.photos/50" alt="message user image">
+                                        src="./photos/<%=`${message['authorID']}`%>.jpg" onerror="this.src='./photos/user.jpg'" alt="message user image">
 
                                     </div>
                                     <%} else {%>
                                         <div class="d-flex justify-content-start align-items-center">
                                             <img class="direct-chat-img rounded-circle" width="60" height="60"
-                                                src="https://picsum.photos/50" alt="message user image">
+                                            src="./photos/<%=`${message['authorID']}`%>.jpg" onerror="this.src='./photos/user.jpg'" alt="message user image">
                                             <div class="direct-chat-msg m-2 border rounded bg-light text-dark p-2">
                                                 <div class="direct-chat-info clearfix text-secondary">
                                                     <span class="direct-chat-name pull-left"><%=message['authorName']%></span>
