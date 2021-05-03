@@ -1,7 +1,7 @@
 const { Schema } = require('mongoose')
 const client = require('../modules/mongo')
 const moment = require('moment')
-
+const date = require('date-and-time');
 const MessageSchema = new Schema({
     content: {
         type: String, 
@@ -24,7 +24,7 @@ const MessageSchema = new Schema({
     },
     date: {
         type: String,
-        default: moment(Date.now()).format('D MMM h:mm a')
+        default: date.format(new Date(), 'D MMM h:mm A')
     }
 })
 
