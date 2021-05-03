@@ -1,6 +1,5 @@
 const { Schema } = require('mongoose')
 const client = require('../modules/mongo')
-const moment = require('moment')
 const date = require('date-and-time');
 const MessageSchema = new Schema({
     content: {
